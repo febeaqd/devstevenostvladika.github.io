@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Официальный сайт Владоса — Девственника Судьбы. Лучший сайт-визитка 2025 года." />
+  <title>Владик — Девственник Судьбы</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4775/4775015.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      background: radial-gradient(ellipse at top left, #0f0c29, #302b63, #24243e);
+    }
+    
+    .video-bg, .image-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transition: opacity 0.7s ease;
+    }
+    .image-bg { display: none; }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: -1;
+    }
+
+    .controls {
+      position: fixed;
+      top: 10px; right: 10px;
+      z-index: 100;
+      display: flex;
+      gap: 10px;
+    }
+    .control-button {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid #fff;
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .control-button:hover {
+      background: #00ffff;
+      color: #000;
+      transform: scale(1.1);
+    }
+
+    header {
+      text-align: center;
+      padding-top: 120px;
+      animation: fadeInUp 1s ease forwards;
+    }
+    header h1 {
+      font-size: 3.2rem;
+      text-shadow: 0 0 15px #ff00ff;
+    }
+    header p {
+      font-size: 1.4rem;
+      color: #ccc;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .neon-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #00ffff;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #00ffff;
+      text-align: center;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .socials a {
+      margin: 0 12px;
+      color: #00ffff;
+      font-size: 24px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .socials a:hover {
+      color: #ff00ff;
+      transform: scale(1.2);
+    }
+
+    .reviews img {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 3px solid #ff00ff;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    .quiz button {
+      background: #00ffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .quiz button:hover {
+      background: #ff00ff;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .model-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      text-align: center;
+    }
+    model-viewer {
+      width: 100%;
+      height: 500px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <video class="video-bg" autoplay muted loop playsinline id="bgVideo" src="https://res.cloudinary.com/ducjgcvkp/video/upload/эдит_1_iaz9ip.mp4"></video>
+  <img class="image-bg" id="imgBg" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1600&q=80" alt="Background" />
+  <div class="overlay"></div>
+
+  <div class="controls">
+    <div class="control-button" id="muteBtn" onclick="toggleMute()">🔇</div>
+    <div class="control-button" id="bgToggleBtn" onclick="toggleBackground()">Отключить видео</div>
+    <div class="control-button" onclick="toggleTheme()">🌓</div>
+  </div>
+
+  <header>
+    <h1>Владик — Девственник Судьбы</h1>
+    <p>22 года непобедимой чистоты</p>
+  </header>
+
+  <section class="model-section">
+    <h2>Владос в 3D</h2>
+    <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" alt="3D Владик" auto-rotate camera-controls background-color="#000000"></model-viewer>
+    <p style="margin-top: 10px; color: #ccc">(тестовая модель — будет заменена на Владоса)</p>
+  </section>
+
+  <!-- Остальная часть сайта (соцсети, TikTok, отзывы, квиз, счётчик, футер) остаётся без изменений -->
