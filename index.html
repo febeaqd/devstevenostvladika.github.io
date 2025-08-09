@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Влад Девственник</title>
+  <meta name="description" content="Лендинг Влада: таймер невинности, мем-блоки и отзывы.">
+  <style>
+    :root{
+      --bg:#0f0f12; --card:#16161b; --text:#eaeaf0; --muted:#a5a6ad; --line:#23232a;
+      --accent:#ff4d8d; --accent2:#6bc2ff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,Noto Sans,sans-serif;background:var(--bg);color:var(--text)}
+    a{color:inherit}
+    header{position:sticky;top:0;background:rgba(15,15,18,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50}
+    .nav{max-width:1100px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:.2px;display:flex;align-items:center;gap:8px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px rgba(255,77,141,.5)}
+    .menu a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:999px;font-size:14px}
+    .menu a:hover{background:#23232a;color:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:24px 20px 72px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;margin-top:24px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    .hero-card{background:#1b1b22;border:1px solid var(--line);border-radius:18px;padding:22px}
+    h1{margin:0 0 8px 0;font-size:clamp(26px,3.2vw,44px)}
+    .lead{color:var(--muted);margin:0}
+    .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;min-width:96px;text-align:center}
+    .n{font-weight:800;font-variant-numeric:tabular-nums;font-size:24px}
+    .photo{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#15151c;aspect-ratio:4/3}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    section{margin-top:44px}
+    h2{font-size:clamp(22px,2.2vw,30px);margin:0 0 12px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
+    @media (max-width:560px){.grid-3{grid-template-columns:1fr}}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:700px){.grid-2{grid-template-columns:1fr}}
+    .card-img{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#1b1b22}
+    .card-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .desc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;color:#cfd0d7}
+    .socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .icon-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:#1c1c22;text-decoration:none;color:#eaeaf0}
+    .icon{width:18px;height:18px;display:block}
+    .thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .thumb{width:72px;height:72px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#1b1b22}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    /* Reviews */
+    .reviews{display:grid;grid-template-columns:1fr;gap:12px}
+    .review{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px;background:#1b1b22}
+    .avatar{width:48px;height:48px;border-radius:50%;overflow:hidden;border:1px solid var(--line);background:#121218;flex:0 0 auto}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .review .name{font-weight:700}
+    .review .text{color:#cfd0d7;margin-top:4px;line-height:1.35}
+    .add-form{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#1b1b22}
+    .add-form input,.add-form textarea{width:100%;background:#121218;border:1px solid #2a2a33;border-radius:10px;color:#eaeaf0;padding:10px}
+    .add-form input::placeholder,.add-form textarea::placeholder{color:#8f9099}
+    .add-form textarea{min-height:80px;resize:vertical}
+    .add-form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width:700px){.add-form .row{grid-template-columns:1fr}}
+    .add-form button{margin-top:10px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#232331;color:#fff;cursor:pointer}
+    .add-form button:hover{background:#2a2a3a}
+    footer{border-top:1px solid var(--line);color:#9a9baa;text-align:center;padding:28px 20px}
+  
+    .single { max-width: 520px; margin: 0 auto; }
+    @media (max-width: 520px){ .single { max-width: 92%; } }
+    .single img { width: 100%; height: auto; display: block; }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="dot"></span>Влад Девственник</div>
+      <nav class="menu">
+        <a href="#ex">Бывшая</a>
+        <a href="#fails">Не получилось</a>
+        <a href="#missed">Упущенный секс</a>
+        <a href="#possible">Возможный секс</a>
+        <a href="#prefs">Предпочтения</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#socials">Соцсети</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-card">
+        <h1>Влад всё ещё девственник</h1>
+        <p class="lead">Отсчёт ведётся с <b>13 декабря 2003</b>. Таймер обновляется раз в секунду.</p>
+        <div class="stats">
+          <div class="stat"><div id="years" class="n">0</div><small>лет</small></div>
+          <div class="stat"><div id="months" class="n">0</div><small>месяцев</small></div>
+          <div class="stat"><div id="days" class="n">0</div><small>дней</small></div>
+          <div class="stat"><div id="hours" class="n">0</div><small>часов</small></div>
+          <div class="stat"><div id="minutes" class="n">0</div><small>минут</small></div>
+          <div class="stat"><div id="seconds" class="n">0</div><small>секунд</small></div>
+        </div>
+
+        <div class="thumbs" aria-label="Превью фото из разделов">
+          <!-- Strict order as provided -->
+          <div class="thumb"><img alt="thumb 1 ex" src="https://imgur.com/oZSdVkq.png" loading="lazy"></div>
+          <div class="thumb"><img alt="thumb 2 fail1" src="https://i.imgur.com/ukGQrt0.png" loading="lazy"></div>
+          <div class="thumb"><img alt="thumb 3 fail2" src="https://i.imgur.com/oZSdVkq.png" loading="lazy"></div>
+          <div class="thumb"><img alt="thumb 4 fail3" src="https://i.imgur.com/S7qvmla.png" loading="lazy"></div>
+          <div class="thumb"><img alt="thumb 5 missed" src="https://i.imgur.com/RKjE4JT.png" loading="lazy"></div>
+          <div class="thumb"><img alt="thumb 6 possible" src="https://i.imgur.com/1aX3dzC.png" loading="lazy"></div>
+        </div>
+
+        <div class="socials" id="socials">
+          <a class="icon-btn" href="https://t.me/corpsedish" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M9.03 15.47 8.8 18.9c.48 0 .69-.21.94-.46l2.27-2.2 4.71 3.44c.86.48 1.48.23 1.72-.8l3.11-14.56h0c.28-1.3-.47-1.81-1.3-1.5L1.59 9.29C.33 9.78.34 10.52 1.36 10.83l5.09 1.59 11.84-7.48c.56-.36 1.08-.16.66.2" stroke="#eaeaf0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Telegram
+          </a>
+          <a class="icon-btn" href="https://www.tiktok.com/@slutdat" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M14.5 3v4.2c0 2.3 1.9 4.2 4.2 4.2h2.1v3.2a9.9 9.9 0 0 1-6.3-2.2v5.5A5.9 5.9 0 1 1 9.4 12h3.1a2.8 2.8 0 1 0 2 2.7V3h0z" fill="#eaeaf0"/></svg>
+            TikTok
+          </a>
+          <a class="icon-btn" href="https://www.instagram.com/xxlrde" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#eaeaf0" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#eaeaf0" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="#eaeaf0"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="photo">
+        <img src="https://i.imgur.com/SicTqtJ.png" alt="Влад" loading="lazy">
+      </div>
+    </section>
+
+    <!-- SECTIONS with strict order -->
+    <section id="ex">
+      <h2>Бывшая</h2>
+      <div class="card-img single"><img src="https://imgur.com/oZSdVkq.png" alt="Бывшая" loading="lazy"></div>
+      <p class="desc">Архивный экспонат. Глаза — как у кота из мультика: смотришь и веришь, что «почти получилось». Но нет.</p>
+    </section>
+
+    <section id="fails">
+      <h2>С кем не получилось</h2>
+      <div class="grid-3">
+        <div class="card-img"><img src="https://i.imgur.com/ukGQrt0.png" alt="Не получилось #1" loading="lazy"></div>
+        <div class="card-img"><img src="https://i.imgur.com/S7qvmla.png" alt="Не получилось #3" loading="lazy"></div>
+      </div>
+      <p class="desc">То автобус ушёл, то каблук сломался, то «я завтра рано встаю». И Влад такой: «понял, принял, обнял — без рук».</p>
+    </section>
+
+    <section id="missed">
+      <h2>Упущенный секс</h2>
+      <div class="card-img single"><img src="https://i.imgur.com/RKjE4JT.png" alt="Упущенный момент" loading="lazy"></div>
+      <p class="desc">Тот самый вечер: музыка играет, настроение — огонь, а Влад решил сделать вид, что он джентльмен школы XIX века. Слишком вежливый — аж мимо.</p>
+    </section>
+
+    <section id="possible">
+      <h2>Возможный секс</h2>
+      <div class="card-img single"><img src="https://i.imgur.com/ukGQrt0.png" alt="Потенциальная встреча" loading="lazy"></div>
+      <p class="desc">Есть шанс! Если Влад не начнёт читать лекцию про своё идеальное свидание и просто позовёт на шаурму — может и залетит.</p>
+    </section>
+
+    <!-- PREFS -->
+    <section id="prefs">
+      <h2>Предпочтения Владика</h2>
+      <div class="desc">
+        <p><b>О Владe:</b> Накачал банки ради секса, но до сих пор пытается понять, куда ими прикладываться. Умеет держать дверь, покупать плед и не выносить мозг во время фильмов.</p>
+        <p><b>Кого ищет:</b> альтушеньку-анимечницу с вайбом «завёз мемы и чай», с шикарной архитектурой форм — чтобы гатить в плюс и жить красиво. Бонусы: кошачьи ушки, тёплые худи и любовь к ночным прогулкам до холодильника.</p>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+      <h2>Отзывы</h2>
+      <div id="reviewsList" class="reviews"></div>
+
+      <form id="addReview" class="add-form" autocomplete="off">
+        <div class="row">
+          <input name="name" placeholder="Твоё имя (или ник)" required />
+          <input name="avatar" placeholder="URL твоей аватарки (необязательно)" />
+        </div>
+        <textarea name="text" placeholder="Напиши свой честный (но смешной) отзыв о Владике" required></textarea>
+        <button type="submit">Добавить отзыв</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>© 2025 Влад & Ко. Таймер тикает — надежда живёт.</footer>
+
+  <script>
+    // === TIMER ===
+    const START = new Date(2003,11,13,0,0,0);
+    function partsBetween(start, now){
+      const anchor = new Date(start.getTime());
+      let years = now.getFullYear() - anchor.getFullYear();
+      const mDiff = now.getMonth() - anchor.getMonth();
+      const dDiff = now.getDate() - anchor.getDate();
+      if (mDiff < 0 || (mDiff === 0 && dDiff < 0)) years--;
+      anchor.setFullYear(anchor.getFullYear() + years);
+      let months = now.getMonth() - anchor.getMonth();
+      if (now.getDate() < anchor.getDate()) months--;
+      if (months < 0) months += 12;
+      anchor.setMonth(anchor.getMonth() + months);
+      let ms = now - anchor; if (ms < 0) ms = 0;
+      const days = Math.floor(ms / 86400000); ms -= days * 86400000;
+      const hours = Math.floor(ms / 3600000); ms -= hours * 3600000;
+      const minutes = Math.floor(ms / 60000); ms -= minutes * 60000;
+      const seconds = Math.floor(ms / 1000);
+      return { years, months, days, hours, minutes, seconds };
+    }
+    function tick(){
+      const t = partsBetween(START, new Date());
+      ['years','months','days','hours','minutes','seconds'].forEach(k => {
+        const el = document.getElementById(k);
+        if (el) el.textContent = t[k];
+      });
+    }
+    tick(); setInterval(tick, 1000);
+
+    // === REVIEWS DATA (no IT slang) ===
+    const seed = [
+      {
+        name: "Бывшая",
+        avatar: "https://imgur.com/oZSdVkq.png",
+        text: "Замолаживал красиво: плед, чай, плейлист. А потом застеснялся так, будто я его училка. В итоге обнимашки — да, остальное — «в следующий раз»."
+      },
+      {
+        name: "Не получилось #1",
+        avatar: "https://i.imgur.com/ukGQrt0.png",
+        text: "Он милый, смешной и пахнет ванилью. Но как дошло до «поехали ко мне» — вспомнил, что ему утром к барберу. Я до сих пор в недоумении."
+      },
+      {
+        name: "Не получилось #2",
+        avatar: "https://i.imgur.com/oZSdVkq.png",
+        text: "Глаза горят, руки тёплые, всё супер — а потом он начал переживать, что слишком быстро. Я сказала: «быстро — это хорошо», но он решил «будь джентльменом». Ну ок."
+      },
+      {
+        name: "Не получилось #3",
+        avatar: "https://i.imgur.com/S7qvmla.png",
+        text: "Свидание отличное: шутки, шаурма, закат. И в кульминации он такой: «давай не торопиться». В итоге торопиться уже некуда."
+      },
+      {
+        name: "Упущенный шанс",
+        avatar: "https://i.imgur.com/RKjE4JT.png",
+        text: "Я уже сняла каблуки, а он вдруг решил включить песню «для атмосферы» и полчаса её выбирал. Атмосфера ушла спать без нас."
+      },
+      {
+        name: "Возможный вариант",
+        avatar: "https://i.imgur.com/1aX3dzC.png",
+        text: "Шанс есть. Если принесёт чипсы, укроет пледом и не начнёт говорить «а чего ты вообще ищешь в жизни» — я за."
+      }
+    ];
+
+    const LS_KEY = "vlad_reviews_v2";
+    function loadReviews(){
+      try{
+        const raw = localStorage.getItem(LS_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length) return parsed;
+        }
+      }catch(e){}
+      return seed.slice();
+    }
+    function saveReviews(list){
+      try{ localStorage.setItem(LS_KEY, JSON.stringify(list)); }catch(e){}
+    }
+    function escapeHtml(str){
+      return String(str)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+    function renderReviews(list){
+      const root = document.getElementById("reviewsList");
+      root.innerHTML = "";
+      list.forEach(r => {
+        const item = document.createElement("div");
+        item.className = "review";
+        item.innerHTML = `
+          <div class="avatar">${r.avatar ? `<img src="${r.avatar}" alt="avatar">` : ""}</div>
+          <div>
+            <div class="name">${r.name ? escapeHtml(r.name) : "Аноним"}</div>
+            <div class="text">${escapeHtml(r.text)}</div>
+          </div>`;
+        root.appendChild(item);
+      });
+    }
+    const reviews = loadReviews();
+    renderReviews(reviews);
+
+    document.getElementById("addReview").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.currentTarget);
+      const name = (fd.get("name") || "").toString().trim();
+      const text = (fd.get("text") || "").toString().trim();
+      const avatar = (fd.get("avatar") || "").toString().trim();
+      if (!text) return;
+      const entry = { name: name || "Аноним", text, avatar };
+      reviews.unshift(entry);
+      saveReviews(reviews);
+      renderReviews(reviews);
+      e.currentTarget.reset();
+    });
+  </script>
+</body>
+</html>
